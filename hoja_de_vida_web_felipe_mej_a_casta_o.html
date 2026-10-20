@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="es" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Felipe Mejía Castaño | Curriculum Vitae - Desarrollador Backend Junior</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            500: '#0284c7',
+                            600: '#0369a1',
+                            800: '#1e3a8a',
+                            900: '#0f172a',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts Inter & FontAwesome Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Directives for clean printing to PDF */
+        @media print {
+            .no-print {
+                display: none !important;
+            }
+            body {
+                background-color: #ffffff !important;
+                color: #000000 !important;
+                padding: 0 !important;
+            }
+            .cv-card {
+                box-shadow: none !important;
+                border: none !important;
+                max-width: 100% !important;
+                margin: 0 !important;
+                border-radius: 0 !important;
+            }
+            .print-break-inside-avoid {
+                break-inside: avoid;
+            }
+        }
+
+        /* Smooth transitions for interactive elements */
+        .interactive-hover {
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .interactive-hover:hover {
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body class="bg-slate-100 dark:bg-slate-900 text-slate-800 dark:text-slate-100 min-h-screen py-6 sm:py-10 px-3 sm:px-6 transition-colors duration-300">
+
+    <!-- Sticky Floating Action Bar (Theme Switch & Print PDF) -->
+    <div class="fixed top-4 right-4 z-50 flex items-center gap-2 no-print">
+        <button id="themeToggle" onclick="toggleDarkMode()" class="bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 p-3 rounded-full shadow-lg border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700 transition-all focus:outline-none focus:ring-2 focus:ring-brand-500" title="Cambiar tema claro/oscuro">
+            <i class="fa-solid fa-moon dark:hidden text-lg"></i>
+            <i class="fa-solid fa-sun hidden dark:block text-amber-400 text-lg"></i>
+        </button>
+        <button onclick="window.print()" class="bg-brand-800 hover:bg-brand-900 text-white p-3 rounded-full shadow-lg transition-all focus:outline-none focus:ring-2 focus:ring-brand-500 flex items-center justify-center" title="Imprimir o guardar como PDF">
+            <i class="fa-solid fa-print text-lg"></i>
+        </button>
+    </div>
+
+    <!-- Main Resume Container -->
+    <div class="max-w-5xl mx-auto bg-white dark:bg-slate-800 rounded-2xl shadow-xl dark:shadow-2xl border border-slate-200/80 dark:border-slate-700 overflow-hidden cv-card transition-colors duration-300">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-12">
+            
+            <!-- LEFT COLUMN / SIDEBAR (35% width on desktop) -->
+            <aside class="lg:col-span-4 bg-slate-900 text-white p-6 sm:p-8 flex flex-direction-column justify-between border-r border-slate-800">
+                <div>
+                    <!-- Profile Photo / Avatar Header -->
+                    <div class="text-center mb-8">
+                        <div class="relative inline-block group">
+                            <img id="profileImage" src="Cc_1193523771_Felipe_Mejía_Castaño_RH_A+.jpeg" alt="Felipe Mejía Castaño" class="w-36 h-36 rounded-full mx-auto object-cover border-4 border-brand-500/80 shadow-xl bg-slate-800 transition-transform duration-300 group-hover:scale-105" onerror="this.onerror=null; this.src='foto.jpg';">
+                            <label for="imageUpload" class="no-print absolute bottom-1 right-1 bg-brand-500 hover:bg-brand-600 text-white p-2 rounded-full cursor-pointer shadow-md transition-all text-xs" title="Cambiar foto de perfil">
+                                <i class="fa-solid fa-camera"></i>
+                                <input type="file" id="imageUpload" accept="image/*" class="hidden" onchange="previewImage(event)">
+                            </label>
+                        </div>
+                        <h2 class="text-xs uppercase tracking-widest text-brand-500 font-bold mt-4">Curriculum Vitae</h2>
+                    </div>
+
+                    <!-- Contact Details Section -->
+                    <div class="mb-8 space-y-4">
+                        <h3 class="text-xs font-bold uppercase tracking-wider text-slate-400 border-b border-slate-800 pb-2">
+                            <i class="fa-solid fa-address-book text-brand-500 mr-2"></i>Contacto
+                        </h3>
+
+                        <div class="space-y-3 text-sm">
+                            <a href="tel:+573042121780" class="flex items-center gap-3 text-slate-300 hover:text-brand-500 transition-colors group">
+                                <div class="w-8 h-8 rounded-lg bg-slate-800/80 flex items-center justify-center text-brand-500 group-hover:bg-brand-500 group-hover:text-white transition-all shrink-0">
+                                    <i class="fa-solid fa-phone text-xs"></i>
+                                </div>
+                                <span class="font-medium">+57 304 212 1780</span>
+                            </a>
+
+                            <a href="mailto:alefeli0631@gmail.com" class="flex items-center gap-3 text-slate-300 hover:text-brand-500 transition-colors group break-all">
+                                <div class="w-8 h-8 rounded-lg bg-slate-800/80 flex items-center justify-center text-brand-500 group-hover:bg-brand-500 group-hover:text-white transition-all shrink-0">
+                                    <i class="fa-solid fa-envelope text-xs"></i>
+                                </div>
+                                <span class="font-medium text-xs sm:text-sm">alefeli0631@gmail.com</span>
+                            </a>
+
+                            <div class="flex items-center gap-3 text-slate-300">
+                                <div class="w-8 h-8 rounded-lg bg-slate-800/80 flex items-center justify-center text-brand-500 shrink-0">
+                                    <i class="fa-solid fa-location-dot text-xs"></i>
+                                </div>
+                                <span class="font-medium">Medellín, Antioquia, Colombia</span>
+                            </div>
+
+                            <a href="https://github.com/alefeli0631-web" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 text-slate-300 hover:text-brand-500 transition-colors group">
+                                <div class="w-8 h-8 rounded-lg bg-slate-800/80 flex items-center justify-center text-brand-500 group-hover:bg-brand-500 group-hover:text-white transition-all shrink-0">
+                                    <i class="fa-brands fa-github text-xs"></i>
+                                </div>
+                                <span class="font-medium">github.com/alefeli0631-web</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Technical Skills Section -->
+                    <div class="mb-8">
+                        <h3 class="text-xs font-bold uppercase tracking-wider text-slate-400 border-b border-slate-800 pb-2 mb-3">
+                            <i class="fa-solid fa-code text-brand-500 mr-2"></i>Habilidades Técnicas
+                        </h3>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-2.5 py-1 bg-slate-800 text-brand-500 rounded-md text-xs font-semibold border border-slate-700/60">Python (POO)</span>
+                            <span class="px-2.5 py-1 bg-slate-800 text-brand-500 rounded-md text-xs font-semibold border border-slate-700/60">Node.js</span>
+                            <span class="px-2.5 py-1 bg-slate-800 text-brand-500 rounded-md text-xs font-semibold border border-slate-700/60">Express.js</span>
+                            <span class="px-2.5 py-1 bg-slate-800 text-brand-500 rounded-md text-xs font-semibold border border-slate-700/60">PostgreSQL</span>
+                            <span class="px-2.5 py-1 bg-slate-800 text-brand-500 rounded-md text-xs font-semibold border border-slate-700/60">PL/pgSQL</span>
+                            <span class="px-2.5 py-1 bg-slate-800 text-brand-500 rounded-md text-xs font-semibold border border-slate-700/60">JavaScript (ES6+)</span>
+                            <span class="px-2.5 py-1 bg-slate-800 text-slate-300 rounded-md text-xs font-medium border border-slate-700/60">HTML5 & CSS3</span>
+                            <span class="px-2.5 py-1 bg-slate-800 text-slate-300 rounded-md text-xs font-medium border border-slate-700/60">Git & GitHub</span>
+                            <span class="px-2.5 py-1 bg-slate-800 text-slate-300 rounded-md text-xs font-medium border border-slate-700/60">VS Code</span>
+                            <span class="px-2.5 py-1 bg-slate-800 text-slate-300 rounded-md text-xs font-medium border border-slate-700/60">SQL & Triggers</span>
+                        </div>
+                    </div>
+
+                    <!-- Soft Skills / Competencies -->
+                    <div class="mb-6">
+                        <h3 class="text-xs font-bold uppercase tracking-wider text-slate-400 border-b border-slate-800 pb-2 mb-3">
+                            <i class="fa-solid fa-user-check text-brand-500 mr-2"></i>Competencias
+                        </h3>
+                        <div class="grid grid-cols-1 gap-2 text-xs text-slate-300">
+                            <div class="flex items-center gap-2">
+                                <i class="fa-solid fa-circle-check text-brand-500 text-[10px]"></i>
+                                <span>Trabajo en equipo y comunicación asertiva</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <i class="fa-solid fa-circle-check text-brand-500 text-[10px]"></i>
+                                <span>Pensamiento lógico y estructurado</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <i class="fa-solid fa-circle-check text-brand-500 text-[10px]"></i>
+                                <span>Resolución eficiente de problemas</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <i class="fa-solid fa-circle-check text-brand-500 text-[10px]"></i>
+                                <span>Aprendizaje autónomo continuo</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Languages / Extras -->
+                <div class="pt-4 border-t border-slate-800 text-xs text-slate-400 flex justify-between items-center">
+                    <span><i class="fa-solid fa-globe mr-1 text-brand-500"></i> Español (Nativo)</span>
+                    <span class="bg-slate-800 px-2 py-0.5 rounded text-[10px] text-slate-300 border border-slate-700">Junior Level</span>
+                </div>
+            </aside>
+
+            <!-- RIGHT COLUMN / MAIN BODY (65% width on desktop) -->
+            <main class="lg:col-span-8 p-6 sm:p-10 bg-slate-50/50 dark:bg-slate-800/50 flex flex-col justify-between">
+                <div>
+                    <!-- Header Title Banner -->
+                    <header class="border-b border-slate-200 dark:border-slate-700 pb-6 mb-8">
+                        <h1 class="text-3xl sm:text-4xl font-extrabold text-brand-900 dark:text-white tracking-tight">
+                            Felipe Mejía Castaño
+                        </h1>
+                        <p class="text-base sm:text-lg font-semibold text-brand-600 dark:text-brand-500 mt-1 flex items-center gap-2">
+                            <i class="fa-solid fa-laptop-code text-sm"></i>
+                            <span>Estudiante ADSO (SENA) | Desarrollador Junior Backend</span>
+                        </p>
+                    </header>
+
+                    <!-- Professional Summary -->
+                    <section class="mb-8 print-break-inside-avoid">
+                        <h2 class="text-lg font-bold text-brand-900 dark:text-white uppercase tracking-wider mb-3 flex items-center gap-2.5">
+                            <span class="w-2 h-6 bg-brand-500 rounded-full inline-block"></span>
+                            <i class="fa-solid fa-user-tie text-brand-600 dark:text-brand-500 text-sm"></i>
+                            Perfil Profesional
+                        </h2>
+                        <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed text-justify">
+                            Estudiante del tecnólogo en <strong class="text-slate-900 dark:text-white font-semibold">Análisis y Desarrollo de Software (ADSO)</strong> en el SENA (Medellín, Colombia). Cuento con sólida formación práctica en lógica de programación, arquitectura de aplicaciones web e implementación de bases de datos relacionales. Especialmente enfocado en el desarrollo backend, con dominio de <strong class="text-slate-900 dark:text-white font-semibold">Python (POO), JavaScript / Node.js, Express.js y PostgreSQL (triggers y PL/pgSQL)</strong>. Me caracterizo por el pensamiento estructurado, la atención al detalle en el modelado de datos y el compromiso constante con las buenas prácticas de desarrollo.
+                        </p>
+                    </section>
+
+                    <!-- Featured Projects -->
+                    <section class="mb-8 print-break-inside-avoid">
+                        <h2 class="text-lg font-bold text-brand-900 dark:text-white uppercase tracking-wider mb-4 flex items-center gap-2.5">
+                            <span class="w-2 h-6 bg-brand-500 rounded-full inline-block"></span>
+                            <i class="fa-solid fa-diagram-project text-brand-600 dark:text-brand-500 text-sm"></i>
+                            Proyectos Destacados
+                        </h2>
+
+                        <div class="space-y-4">
+                            <!-- Project 1: Barbería Élite del Estilo -->
+                            <div class="bg-white dark:bg-slate-900 p-5 rounded-xl border border-slate-200/80 dark:border-slate-700/80 shadow-sm interactive-hover">
+                                <div class="flex flex-wrap justify-between items-start gap-2 mb-2">
+                                    <h3 class="text-base font-bold text-brand-900 dark:text-white flex items-center gap-2">
+                                        <i class="fa-solid fa-scissors text-brand-600 dark:text-brand-500 text-sm"></i>
+                                        Barbería Élite del Estilo
+                                    </h3>
+                                    <div class="flex flex-wrap gap-1.5">
+                                        <span class="bg-brand-50 dark:bg-brand-900/50 text-brand-600 dark:text-brand-500 font-medium text-[11px] px-2 py-0.5 rounded border border-brand-100 dark:border-brand-800">Node.js</span>
+                                        <span class="bg-brand-50 dark:bg-brand-900/50 text-brand-600 dark:text-brand-500 font-medium text-[11px] px-2 py-0.5 rounded border border-brand-100 dark:border-brand-800">Express</span>
+                                        <span class="bg-brand-50 dark:bg-brand-900/50 text-brand-600 dark:text-brand-500 font-medium text-[11px] px-2 py-0.5 rounded border border-brand-100 dark:border-brand-800">PostgreSQL</span>
+                                    </div>
+                                </div>
+                                <p class="text-xs text-slate-600 dark:text-slate-300 mb-3">
+                                    Sistema web de gestión integral de agendamiento de citas, administración de usuarios y catálogo de servicios de barbería.
+                                </p>
+                                <ul class="text-xs text-slate-600 dark:text-slate-300 space-y-1.5 list-disc list-inside">
+                                    <li>Diseño completo del modelo entidad-relación y normalización de la base de datos PostgreSQL.</li>
+                                    <li>Desarrollo e integración de API RESTful con Node.js y Express.js mediante el controlador <code class="bg-slate-100 dark:bg-slate-800 px-1 py-0.5 rounded text-brand-600 dark:text-brand-500">pg</code>.</li>
+                                    <li>Manejo de control de accesos para múltiples roles (Cliente, Barbero, Administrador) y diseño de interfaz adaptable.</li>
+                                </ul>
+                            </div>
+
+                            <!-- Project 2: Sonido Extremo -->
+                            <div class="bg-white dark:bg-slate-900 p-5 rounded-xl border border-slate-200/80 dark:border-slate-700/80 shadow-sm interactive-hover">
+                                <div class="flex flex-wrap justify-between items-start gap-2 mb-2">
+                                    <h3 class="text-base font-bold text-brand-900 dark:text-white flex items-center gap-2">
+                                        <i class="fa-solid fa-sliders text-brand-600 dark:text-brand-500 text-sm"></i>
+                                        Sonido Extremo
+                                    </h3>
+                                    <div class="flex flex-wrap gap-1.5">
+                                        <span class="bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-medium text-[11px] px-2 py-0.5 rounded border border-slate-200 dark:border-slate-700">PostgreSQL</span>
+                                        <span class="bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-medium text-[11px] px-2 py-0.5 rounded border border-slate-200 dark:border-slate-700">PL/pgSQL</span>
+                                        <span class="bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-medium text-[11px] px-2 py-0.5 rounded border border-slate-200 dark:border-slate-700">pgAdmin</span>
+                                    </div>
+                                </div>
+                                <p class="text-xs text-slate-600 dark:text-slate-300 mb-3">
+                                    Arquitectura de base de datos relacional avanzada enfocada en el seguimiento operacional y control automatizado de inventarios.
+                                </p>
+                                <ul class="text-xs text-slate-600 dark:text-slate-300 space-y-1.5 list-disc list-inside">
+                                    <li>Programación de <strong class="font-medium text-slate-800 dark:text-slate-200">triggers en PL/pgSQL</strong> para validaciones automáticas de datos en tiempo real.</li>
+                                    <li>Creación de procedimientos almacenados y consultas SQL optimizadas para reportes analíticos e integridad de datos.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Academic Education -->
+                    <section class="mb-8 print-break-inside-avoid">
+                        <h2 class="text-lg font-bold text-brand-900 dark:text-white uppercase tracking-wider mb-4 flex items-center gap-2.5">
+                            <span class="w-2 h-6 bg-brand-500 rounded-full inline-block"></span>
+                            <i class="fa-solid fa-graduation-cap text-brand-600 dark:text-brand-500 text-sm"></i>
+                            Formación Académica
+                        </h2>
+
+                        <div class="bg-white dark:bg-slate-900 p-5 rounded-xl border border-slate-200/80 dark:border-slate-700/80 shadow-sm">
+                            <div class="flex flex-wrap justify-between items-start gap-1">
+                                <div>
+                                    <h3 class="text-sm font-bold text-brand-900 dark:text-white">
+                                        Tecnólogo en Análisis y Desarrollo de Software (ADSO)
+                                    </h3>
+                                    <p class="text-xs text-brand-600 dark:text-brand-500 font-medium mt-0.5">
+                                        SENA (Servicio Nacional de Aprendizaje) — Medellín, Colombia
+                                    </p>
+                                </div>
+                                <span class="bg-emerald-50 dark:bg-emerald-950/50 text-emerald-600 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800/60 font-semibold text-[11px] px-2.5 py-0.5 rounded-full">
+                                    En curso
+                                </span>
+                            </div>
+                            <p class="text-xs text-slate-500 dark:text-slate-400 mt-2">
+                                Formación integral en ciclo de vida del software, diseño de arquitectura backend, desarrollo orientado a objetos y gestión de bases de datos relacionales.
+                            </p>
+                        </div>
+                    </section>
+                </div>
+
+                <!-- Call to Action Banner / GitHub Redirect -->
+                <div class="pt-4 border-t border-slate-200 dark:border-slate-700 no-print">
+                    <a href="https://github.com/alefeli0631-web" target="_blank" rel="noopener noreferrer" class="w-full bg-brand-800 hover:bg-brand-900 text-white font-bold py-3 px-6 rounded-xl shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-3 group">
+                        <i class="fa-brands fa-github text-xl group-hover:scale-110 transition-transform"></i>
+                        <span>Explorar Repositorios en GitHub (@alefeli0631-web)</span>
+                        <i class="fa-solid fa-arrow-up-right-from-square text-xs opacity-75"></i>
+                    </a>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Interactive JavaScript -->
+    <script>
+        // Dark Mode Toggle Logic
+        function toggleDarkMode() {
+            const html = document.documentElement;
+            if (html.classList.contains('dark')) {
+                html.classList.remove('dark');
+                localStorage.setItem('theme', 'light');
+            } else {
+                html.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+            }
+        }
+
+        // Initialize Theme from localStorage
+        (function initTheme() {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        })();
+
+        // Profile Picture Upload Handler
+        function previewImage(event) {
+            const reader = new FileReader();
+            reader.onload = function() {
+                const output = document.getElementById('profileImage');
+                output.src = reader.result;
+            }
+            if (event.target.files[0]) {
+                reader.readAsDataURL(event.target.files[0]);
+            }
+        }
+    </script>
+</body>
+</html>
